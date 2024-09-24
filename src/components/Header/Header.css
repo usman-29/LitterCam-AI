@@ -1,0 +1,51 @@
+.header {
+    background-color: white;
+    color: #333;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.2s ease;
+}
+
+.navbar {
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #333;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.login-btn {
+    background-color: transparent;
+    color: #333;
+    font-size: larger;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+}

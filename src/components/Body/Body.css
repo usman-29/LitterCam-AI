@@ -1,0 +1,49 @@
+.body_main {
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+}
+
+.body-content {
+    margin-top: 5%;
+    max-width: 800px;
+    text-align: center;
+    color: #333;
+}
+
+.body_main h2 {
+    font-size: 3rem;
+    margin-bottom: 1px;
+}
+
+.tagline {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.subheading {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.description {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}

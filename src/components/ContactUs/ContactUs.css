@@ -1,0 +1,45 @@
+.contact-us {
+    padding: 50px;
+    background-color: #f7f7f7;
+}
+
+.contact-us h2 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-member {
+    margin: 20px;
+    text-align: center;
+}
+
+.team-member h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li {
+    margin-bottom: 5px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #337ab7;
+    transition: color 0.2s ease;
+}
+
+.contact-info a:hover {
+    color: #23527c;
+}

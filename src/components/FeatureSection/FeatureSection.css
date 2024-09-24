@@ -1,0 +1,84 @@
+/* Global Styles */
+
+.features {
+    padding: 50px;
+    background-color: #f7f7f7;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 3rem;
+    color: #333;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    text-align: center;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.feature-item p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #888;
+}
+
+/* Responsive Design */
+
+@media (max-width: 960px) {
+    .feature-list {
+        flex-wrap: wrap;
+    }
+
+    .feature-item {
+        width: 45%;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-item {
+        width: 100%;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .feature-item {
+        padding: 10px;
+    }
+
+    .feature-item img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Hover Effects */
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item:hover img {
+    transform: scale(1.1);
+}
