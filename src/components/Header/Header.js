@@ -8,7 +8,7 @@ const Header = () => {
                 <h1 className="logo">LitterCam AI</h1>
                 <nav>
                     <ul className="nav-links">
-                        <li><a href="">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="">Test</a></li>
                         <li><a href="#about">About</a></li>
