@@ -7,10 +7,15 @@ const AboutUs = () => {
             <div className="left-side">
                 <h2>About Us</h2>
                 <p>
-                    We are undergrad students at Bahria University and we are creating this LitterCam AI project.
+                    At LitterCam AI, we harness cutting-edge technology to foster a cleaner, sustainable environment. Our mission is to combat littering with innovative AI-driven solutions.
                 </p>
+                <h3>Our Vision</h3>
                 <p>
-                    Considering Highways Pakistan’s number one imperative is to reduce the number of people killed or seriously injured and to achieve year on year efficiency savings of 10%, LitterCam can play a valuable role by reducing the exposure of litter clearance teams to risk and the cost of litter clearance.
+                    We envision a litter-free world, promoting a healthier planet for future generations. By integrating advanced detection technologies with community engagement, we strive to raise awareness and drive positive change.
+                </p>
+                <h3>Our Technology</h3>
+                <p>
+                    LitterCam AI employs YOLOv8 object detection and Optical Character Recognition (OCR) to identify littering incidents. Our system tracks vehicles and license plates, fostering accountability and community collaboration for cleaner environments.
                 </p>
             </div>
             <div className="right-side">

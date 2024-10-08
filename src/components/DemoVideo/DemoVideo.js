@@ -23,6 +23,8 @@ const DemoVideo = () => {
                 Your browser does not support the video tag.
             </video>
 
+            <p>Upload a video to test.</p>
+
             {/* Upload button */}
             <input
                 type="file"

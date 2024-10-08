@@ -1,15 +1,20 @@
 .about-us {
     display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping for smaller screens */
     align-items: center;
     justify-content: space-between;
-    height: 100vh;
+    padding: 50px;
+    /* Added padding for better spacing */
     background-color: #333;
 }
 
 .left-side {
     color: white;
-    padding: 50px;
-    width: 50%;
+    width: 100%;
+    /* Full width on small screens */
+    max-width: 600px;
+    /* Limit max width on larger screens */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,18 +22,33 @@
 }
 
 .left-side h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    /* Slightly smaller heading */
+    margin-bottom: 15px;
+    /* Reduced margin */
+}
+
+.left-side h3 {
+    font-size: 1.5rem;
+    /* Adjusted size for subheadings */
+    margin-top: 15px;
+    /* Added margin for spacing */
+    margin-bottom: 10px;
+    /* Added margin for spacing */
 }
 
 .left-side p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    /* Reduced paragraph font size */
+    line-height: 1.5;
+    /* Adjusted line height */
+    margin-bottom: 15px;
+    /* Reduced margin */
 }
 
 .right-side {
-    width: 50%;
+    width: 100%;
+    /* Full width on small screens */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,4 +58,19 @@
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-top: 20px;
+    /* Added margin for spacing */
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .left-side {
+        width: 50%;
+        /* Take half the width on larger screens */
+    }
+
+    .right-side {
+        width: 50%;
+        /* Take half the width on larger screens */
+    }
 }
