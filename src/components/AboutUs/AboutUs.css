@@ -1,12 +1,12 @@
 .about-us {
     display: flex;
     flex-wrap: wrap;
-    /* Allow wrapping for smaller screens */
     align-items: center;
     justify-content: space-between;
     padding: 50px;
-    /* Added padding for better spacing */
     background-color: #333;
+    gap: 20px;
+    /* Add gap to maintain space between left and right sides */
 }
 
 .left-side {
@@ -21,31 +21,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-.left-side h2 {
-    font-size: 2.5rem;
-    /* Slightly smaller heading */
-    margin-bottom: 15px;
-    /* Reduced margin */
-}
-
-.left-side h3 {
-    font-size: 1.5rem;
-    /* Adjusted size for subheadings */
-    margin-top: 15px;
-    /* Added margin for spacing */
-    margin-bottom: 10px;
-    /* Added margin for spacing */
-}
-
-.left-side p {
-    font-size: 1rem;
-    /* Reduced paragraph font size */
-    line-height: 1.5;
-    /* Adjusted line height */
-    margin-bottom: 15px;
-    /* Reduced margin */
-}
-
 .right-side {
     width: 100%;
     /* Full width on small screens */
@@ -56,21 +31,21 @@
 
 .right-side img {
     max-width: 100%;
+    /* Limit image width to 80% of its parent */
     height: auto;
+    /* Maintain aspect ratio */
     border-radius: 10px;
-    margin-top: 20px;
-    /* Added margin for spacing */
 }
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
     .left-side {
-        width: 50%;
-        /* Take half the width on larger screens */
+        width: calc(50% - 10px);
+        /* Take half the width minus half the gap */
     }
 
     .right-side {
-        width: 50%;
-        /* Take half the width on larger screens */
+        width: calc(50% - 10px);
+        /* Take half the width minus half the gap */
     }
 }
