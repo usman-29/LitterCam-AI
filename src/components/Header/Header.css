@@ -1,6 +1,6 @@
 .header {
-    background-color: white;
-    color: #333;
+    background-color: #333;
+    color: white;
     padding: 1rem;
     position: fixed;
     top: 0;
@@ -20,7 +20,7 @@
 
 .logo {
     font-size: 1.5rem;
-    color: #333;
+    color: white;
 }
 
 .nav-links {
@@ -33,7 +33,7 @@
 }
 
 .nav-links a {
-    color: #333;
+    color: white;
     font-size: larger;
     font-weight: bold;
     text-decoration: none;
@@ -42,7 +42,7 @@
 
 .login-btn {
     background-color: transparent;
-    color: #333;
+    color: white;
     font-size: larger;
     font-weight: bold;
     padding: 0.5rem 1rem;
