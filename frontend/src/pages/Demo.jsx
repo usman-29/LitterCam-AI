@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 
 const Demo = () => {
-    const [uploadedVideoSource, setUploadedVideoSource] = useState(assets.output); // For the uploaded video
+    const [uploadedVideoSource, setUploadedVideoSource] = useState(assets.input); // For the uploaded video
     const [isUploading, setIsUploading] = useState(false); // To handle loader
-    const [responseVideoSource, setResponseVideoSource] = useState(assets.input); // For the predicted video
-    const [responseImageSource, setResponseImageSource] = useState(assets.litter_instance); // For the returned image
-    const [responseNumber, setResponseNumber] = useState("ABC 123"); // For the returned number
+    const [responseVideoSource, setResponseVideoSource] = useState(assets.output); // For the predicted video
+    const [responseImageSource, setResponseImageSource] = useState(assets.frame); // For the returned image
+    const [responseNumber, setResponseNumber] = useState("QBD 4237"); // For the returned number
     const [videoFile, setVideoFile] = useState(null); // To hold the uploaded video file
 
 
