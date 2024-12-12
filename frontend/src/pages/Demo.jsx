@@ -173,9 +173,17 @@ const Demo = () => {
 
                 <div className="mt-6">
                     <h2 className="text-left mb-2">Returned Number</h2>
-                    <p className="text-xl font-medium">
-                        {responseNumber || "Not detected"}
-                    </p>
+                    <div className="text-xl font-medium">
+                        {Array.isArray(responseNumber)
+                            ? (
+                                <div className="space-y-2">
+                                    {responseNumber.map((item, index) => (
+                                        <p key={index}>{item}</p>
+                                    ))}
+                                </div>
+                            )
+                            : (responseNumber || "Not detected")}
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,3 +191,4 @@ const Demo = () => {
 };
 
 export default Demo;
+

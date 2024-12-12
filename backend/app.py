@@ -52,6 +52,8 @@ def store_video_processing_data(save_output_video, save_output_image):
         db.session.rollback()
         return None
 
+# ------------------------------------------------------------ORIGINAL
+
 
 @app.route('/', methods=['POST'])
 def upload_video():
@@ -82,6 +84,40 @@ def upload_video():
         'license_number': license_number,
         'database_record_id': db_record.id if db_record else None
     }), 200
+# ------------------------------------------------------------ORIGINAL
+
+
+# ------------------------------------------MULTIPLE LICENSE NUMBER DETECTION
+# @app.route('/', methods=['POST'])
+# def upload_video():
+#     # Video file that user uploads
+#     video = request.files['video']
+#     filename = secure_filename(video.filename)
+
+#     # Save the original video in the input directory
+#     video_path = os.path.join(app.config['INPUT_VIDEOS_PATH'], filename)
+#     video.save(video_path)
+
+#     # Process the video
+#     save_output_video, save_output_image, license_number_list = Process_video(
+#         video_path)
+
+#     # print("License Number:", license_number)
+
+#     # Store processed data in database
+#     db_record = store_video_processing_data(
+#         save_output_video=save_output_video,
+#         save_output_image=save_output_image,
+#     )
+
+#     print("ID OF DB:")
+#     print(db_record.id)
+
+#     return jsonify({
+#         'license_number': license_number_list,
+#         'database_record_id': db_record.id if db_record else None
+#     }), 200
+# ------------------------------------------MULTIPLE LICENSE NUMBER DETECTION
 
 
 @app.route('/media/<path:filename>')
@@ -114,21 +150,6 @@ def retrieve_video_processing_data(record_id):
         'video': video_url,
         'image': image_url,
     }), 200
-
-
-# Retrieve video processing data
-# @app.route('/retrieve/<int:record_id>', methods=['GET'])
-# def retrieve_video_processing_data(record_id):
-#     record = MediaStorage.query.get_or_404(record_id)
-
-#     print("DATABASE RESPONSE")
-#     print(record.video)
-#     print(record.image)
-
-#     return jsonify({
-#         'videoPath': record.video,
-#         'imagePath': record.image,
-#     }), 200
 
 
 if __name__ == '__main__':
