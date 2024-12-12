@@ -1,0 +1,11 @@
+# Ignore input videos
+input_videos/
+
+# Ignore model weights
+model_weights/
+
+# Ignore output videos
+output_videos/
+
+# Ignore saved images
+saved_images/
