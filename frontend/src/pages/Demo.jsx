@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 
 const Demo = () => {
@@ -8,6 +8,7 @@ const Demo = () => {
     const [responseImageSource, setResponseImageSource] = useState(assets.litter_instance); // For the returned image
     const [responseNumber, setResponseNumber] = useState("ABC 123"); // For the returned number
     const [videoFile, setVideoFile] = useState(null); // To hold the uploaded video file
+
 
     // Handle video upload
     const handleVideoUpload = (event) => {
@@ -67,12 +68,20 @@ const Demo = () => {
                 return;
             }
 
+            console.log("SECOND CALL RESPONSE");
+            console.log(fetchResponse);
+            console.log(fetchResponse.video);
+            console.log(fetchResponse.image);
+
             // Update states with the retrieved data
             const { video, image } = fetchData;
 
+            // Update states with the retrieved data
             setResponseNumber(license_number);
-            setResponseVideoSource(video);
-            setResponseImageSource(image);
+
+            // Set response sources
+            setResponseVideoSource(fetchData.video);
+            setResponseImageSource(fetchData.image);
         } catch (error) {
             console.error("Error during processing:", error);
             alert("An error occurred. Please check the console for details.");

@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from model.main import Process_video
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.types import LargeBinary
+from sqlalchemy.types import String
 import base64
 
 app = Flask(__name__)
@@ -20,8 +20,8 @@ db = SQLAlchemy(app)
 
 class MediaStorage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    video = db.Column(LargeBinary)
-    image = db.Column(LargeBinary)
+    video = db.Column(String)
+    image = db.Column(String)
 
 
 # Create database tables
@@ -34,22 +34,11 @@ app.config['INPUT_VIDEOS_PATH'] = os.path.abspath('./input_videos/')
 
 def store_video_processing_data(save_output_video, save_output_image):
     try:
-        # Read output video if exists
-        output_video_data = None
-        if save_output_video and os.path.exists(save_output_video):
-            with open(save_output_video, 'rb') as output_video_file:
-                output_video_data = output_video_file.read()
-
-        # Read output image if exists
-        output_image_data = None
-        if save_output_image and os.path.exists(save_output_image):
-            with open(save_output_image, 'rb') as output_image_file:
-                output_image_data = output_image_file.read()
 
         # Create new database record
         new_record = MediaStorage(
-            video=output_video_data,
-            image=output_image_data
+            video=save_output_video,
+            image=save_output_image
         )
 
         # Add and commit the record
@@ -95,21 +84,51 @@ def upload_video():
     }), 200
 
 
-# Retrieve video processing data
+@app.route('/media/<path:filename>')
+def serve_media(filename):
+    # Determine the directory based on file extension
+    if filename.endswith('.mp4'):
+        directory = os.path.dirname(filename)
+        return send_from_directory(directory, os.path.basename(filename))
+    elif filename.endswith(('.jpg', '.jpeg', '.png')):
+        directory = os.path.dirname(filename)
+        return send_from_directory(directory, os.path.basename(filename))
+    else:
+        return jsonify({'error': 'Invalid file type'}), 400
+
+
 @app.route('/retrieve/<int:record_id>', methods=['GET'])
 def retrieve_video_processing_data(record_id):
     record = MediaStorage.query.get_or_404(record_id)
 
-    # Convert bytes to Base64 strings
-    video_base64 = base64.b64encode(record.video).decode(
-        'utf-8') if isinstance(record.video, bytes) else record.video
-    image_base64 = base64.b64encode(record.image).decode(
-        'utf-8') if isinstance(record.image, bytes) else record.image
+    print("DATABASE RESPONSE")
+    print("Video Path:", record.video)
+    print("Image Path:", record.image)
+
+    # Construct full URLs for media files
+    base_url = request.host_url.rstrip('/')
+    video_url = f"{base_url}/media/{record.video}"
+    image_url = f"{base_url}/media/{record.image}"
 
     return jsonify({
-        'video': video_base64,
-        'image': image_base64,
+        'video': video_url,
+        'image': image_url,
     }), 200
+
+
+# Retrieve video processing data
+# @app.route('/retrieve/<int:record_id>', methods=['GET'])
+# def retrieve_video_processing_data(record_id):
+#     record = MediaStorage.query.get_or_404(record_id)
+
+#     print("DATABASE RESPONSE")
+#     print(record.video)
+#     print(record.image)
+
+#     return jsonify({
+#         'videoPath': record.video,
+#         'imagePath': record.image,
+#     }), 200
 
 
 if __name__ == '__main__':

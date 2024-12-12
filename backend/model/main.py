@@ -131,8 +131,8 @@ def Process_video(video_path):
 
     print("License Plate:", license_number)
 
-    save_output_video = f"C:/Users/usman/LitterCam-AI/frontend/src/assets/videos/output.mp4"
-    save_output_image = f"C:/Users/usman/LitterCam-AI/frontend/src/assets/images/Frame.jpg"
+    save_output_video = "C:/Users/usman/LitterCam-AI/frontend/src/assets/videos/output.mp4"
+    save_output_image = "C:/Users/usman/LitterCam-AI/frontend/src/assets/images/Frame.jpg"
 
     copy_file(output_video_path,
               save_output_video)
