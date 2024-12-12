@@ -78,24 +78,24 @@ LitterCam AI is an innovative project aimed at detecting and tracking littering 
 ### Backend Setup
 1. Clone the repository and navigate to the backend folder.
 2. Install required libraries using requirement.txt:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 3. Run Flask server:
-  ```bash
-  flask run app
-  ```
+```bash
+flask run app
+```
 
 ### Frontend Setup
 1. Navigate to the frontend folder.
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 3. Start the development server:
-  ```bash
-  npm run dev
-  ```
+```bash
+npm run dev
+```
 
 ---
 
