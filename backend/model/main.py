@@ -139,7 +139,7 @@ def Process_video(video_path):
     copy_file('saved_images/Frame.jpg',
               save_output_image)
 
-    return save_output_video, save_output_image, license_number
+    return save_output_video, license_number
 # ------------------------------------------------------------ORIGINAL
 
 # def main():

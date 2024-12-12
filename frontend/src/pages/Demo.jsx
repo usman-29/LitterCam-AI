@@ -5,7 +5,6 @@ const Demo = () => {
     const [uploadedVideoSource, setUploadedVideoSource] = useState(assets.input); // For the uploaded video
     const [isUploading, setIsUploading] = useState(false); // To handle loader
     const [responseVideoSource, setResponseVideoSource] = useState(assets.output); // For the predicted video
-    const [responseImageSource, setResponseImageSource] = useState(assets.frame); // For the returned image
     const [responseNumber, setResponseNumber] = useState("QBD 4237"); // For the returned number
     const [videoFile, setVideoFile] = useState(null); // To hold the uploaded video file
 
@@ -21,7 +20,6 @@ const Demo = () => {
 
             // Reset other states
             setResponseVideoSource(null);
-            setResponseImageSource(null);
             setResponseNumber("");
         }
     };
@@ -71,17 +69,15 @@ const Demo = () => {
             console.log("SECOND CALL RESPONSE");
             console.log(fetchResponse);
             console.log(fetchResponse.video);
-            console.log(fetchResponse.image);
 
             // Update states with the retrieved data
-            const { video, image } = fetchData;
+            const { video } = fetchData;
 
             // Update states with the retrieved data
             setResponseNumber(license_number);
 
             // Set response sources
             setResponseVideoSource(fetchData.video);
-            setResponseImageSource(fetchData.image);
         } catch (error) {
             console.error("Error during processing:", error);
             alert("An error occurred. Please check the console for details.");
@@ -155,21 +151,7 @@ const Demo = () => {
                 )}
             </div>
 
-            <div className="flex justify-evenly">
-                <div className="mt-6">
-                    <h2 className="text-left mb-2">Proof</h2>
-                    {responseImageSource ? (
-                        <img
-                            src={responseImageSource}
-                            alt="Returned Image"
-                            className="w-full max-w-[400px] mx-auto mb-6"
-                        />
-                    ) : (
-                        <div className="bg-gray-200 h-64 w-64 flex items-center justify-center">
-                            No image available
-                        </div>
-                    )}
-                </div>
+            <div className="flex justify-center">
 
                 <div className="mt-6">
                     <h2 className="text-left mb-2">Returned Number</h2>

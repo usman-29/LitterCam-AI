@@ -21,7 +21,6 @@ db = SQLAlchemy(app)
 class MediaStorage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     video = db.Column(String)
-    image = db.Column(String)
 
 
 # Create database tables
@@ -32,13 +31,12 @@ with app.app_context():
 app.config['INPUT_VIDEOS_PATH'] = os.path.abspath('./input_videos/')
 
 
-def store_video_processing_data(save_output_video, save_output_image):
+def store_video_processing_data(save_output_video):
     try:
 
         # Create new database record
         new_record = MediaStorage(
             video=save_output_video,
-            image=save_output_image
         )
 
         # Add and commit the record
@@ -66,15 +64,14 @@ def upload_video():
     video.save(video_path)
 
     # Process the video
-    save_output_video, save_output_image, license_number = Process_video(
+    save_output_video, license_number = Process_video(
         video_path)
 
     print("License Number:", license_number)
 
     # Store processed data in database
     db_record = store_video_processing_data(
-        save_output_video=save_output_video,
-        save_output_image=save_output_image,
+        save_output_video=save_output_video
     )
 
     print("ID OF DB:")
@@ -126,9 +123,6 @@ def serve_media(filename):
     if filename.endswith('.mp4'):
         directory = os.path.dirname(filename)
         return send_from_directory(directory, os.path.basename(filename))
-    elif filename.endswith(('.jpg', '.jpeg', '.png')):
-        directory = os.path.dirname(filename)
-        return send_from_directory(directory, os.path.basename(filename))
     else:
         return jsonify({'error': 'Invalid file type'}), 400
 
@@ -139,16 +133,13 @@ def retrieve_video_processing_data(record_id):
 
     print("DATABASE RESPONSE")
     print("Video Path:", record.video)
-    print("Image Path:", record.image)
 
     # Construct full URLs for media files
     base_url = request.host_url.rstrip('/')
     video_url = f"{base_url}/media/{record.video}"
-    image_url = f"{base_url}/media/{record.image}"
 
     return jsonify({
         'video': video_url,
-        'image': image_url,
     }), 200
 
 
