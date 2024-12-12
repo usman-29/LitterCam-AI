@@ -66,7 +66,7 @@ LitterCam AI is an innovative project aimed at detecting and tracking littering 
 ## Installation
 
 ### Preparation
-1. Create the following directories in the project root:
+1. Create the following directories in the backend folder:
    - `input_videos`
    - `model_weights`
    - `output_videos`
